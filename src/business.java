@@ -6,7 +6,7 @@ abstract class business {
 	protected int accnum = 0;
 	protected double rectotal = 0;
 	protected double taxes = 0;
-
+// test
 	
 	public business(int accnum) {
 		this.accnum = accnum;
