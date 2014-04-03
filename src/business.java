@@ -1,7 +1,7 @@
 /* Jonathan Dimmick & Steven Welch
    CSC 490 Assignment 4 */
 
-
+// making sure i can still push
 abstract class business {
 	protected int accnum = 0;
 	protected double rectotal = 0;
