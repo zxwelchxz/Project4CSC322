@@ -1,13 +1,11 @@
 /* Jonathan Dimmick & Steven Welch
-   CSC 490 Assignment 4 */
+   CSC 322 Assignment 4 */
 
 
 abstract class business {
 	protected int accnum = 0;
 	protected double rectotal = 0;
 	protected double taxes = 0;
-// test
-	//test2
 	
 	public business(int accnum) {
 		this.accnum = accnum;
