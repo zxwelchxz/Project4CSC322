@@ -1,7 +1,7 @@
 /* Jonathan Dimmick & Steven Welch
    CSC 490 Assignment 4 */
 
-// making sure i can still push
+
 abstract class business {
 	protected int accnum = 0;
 	protected double rectotal = 0;
@@ -19,13 +19,15 @@ abstract class business {
 	}
 	
 	public double setReceipt(String type, double total) {
+		// calculates receipt total for drinks
 		if (type.equals("drink") == true) {
 				Restaraunt.drinktotal += (Restaraunt.drinktax * total) + total;
 			}
-		
+		// calculates receipt total for food
 		else if (type.equals("food") == true) {
 			Restaraunt.foodtotal += total;
 		}
+		// calculates receipt total for other items
 		else if(type.equals("other") == true) {
 			this.rectotal += (Convenience.othertax * total) + total;
 		}
