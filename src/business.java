@@ -28,6 +28,7 @@ abstract class business {
 }
 class Restaurant extends business {
 	static double drinktax = .08;
+	static double bartax = .03;
 	double foodtotal;
 	double drinktotal;
 
@@ -40,8 +41,10 @@ class Restaurant extends business {
 	}
 	
 	public void totalReceipt() {
+		
+		// this needs to be calculated for evey week before total receipts are calculated and before drink tax is added
 		if(this.foodtotal > this.drinktotal) {
-			this.rectotal = (this.foodtotal + this.drinktotal)*.03;
+			this.rectotal = (this.foodtotal + this.drinktotal) * Restaurant.bartax;
 		}
 		
 		else {

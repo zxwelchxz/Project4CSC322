@@ -41,15 +41,20 @@ public class Tester {
 		six12.setReceipt("other", 5927);
 		
 		//Display Totals
-		moes.printTotals("food");
-		moes.printTotals("drink");
-		moes.totalReceipt();
 		joes.printTotals("food");
 		joes.printTotals("drink");
 		joes.totalReceipt();
+		System.out.println();
+		moes.printTotals("food");
+		moes.printTotals("drink");
+		moes.totalReceipt();
+		System.out.println();
+
 		
 		ritz.printTotals();
+		System.out.println();
 		notel.printTotals();
+		System.out.println();
 		
 		six12.printTotals("newspaper");
 		six12.printTotals("other");
