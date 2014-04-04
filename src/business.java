@@ -31,6 +31,8 @@ class Restaurant extends business {
 	static double bartax = .03;
 	double foodtotal;
 	double drinktotal;
+	double tempdrink;
+	double tempfood;
 
 	public Restaurant(int accnum) {
 		super(accnum);
@@ -41,29 +43,33 @@ class Restaurant extends business {
 	}
 	
 	public void totalReceipt() {
-		
-		// this needs to be calculated for evey week before total receipts are calculated and before drink tax is added
-		if(this.foodtotal > this.drinktotal) {
-			this.rectotal = (this.foodtotal + this.drinktotal) * Restaurant.bartax;
-		}
-		
-		else {
-			this.rectotal = this.foodtotal + this.drinktotal;
-		}
+		this.rectotal = this.drinktotal + this.foodtotal;
 		System.out.println(getName() + " receipt total: " + this.rectotal);
 	}
 	
 	public void setReceipt(String type, double total) {
 		if (type.equals("drink") == true) {
-			this.drinktotal += (Restaurant.drinktax * total) + total;
+			this.tempdrink += total;
 		}
 	// calculates receipt total for food
 		else if (type.equals("food") == true) {
-		this.foodtotal = this.foodtotal + total;
+		this.tempfood += total;
 		}
 	}
 	
+	public void addBarTax() {
+		if(this.tempfood < this.tempdrink) {
+			this.tempdrink += Restaurant.bartax * this.tempdrink; 
+		}
+		this.tempdrink += Restaurant.drinktax * this.tempdrink;
+		this.foodtotal += this.tempfood;
+		this.drinktotal += this.tempdrink;
+		this.tempdrink = 0;
+		this.tempfood = 0;
+	}
+	
 	public void printTotals(String type) {
+		
 		if(type.equals("food") == true) {
 			System.out.println(getName() + " food total: " + this.foodtotal);
 		}
@@ -77,6 +83,7 @@ class Hotel extends business {
 	static double occupancy = .02;
 	static double totaltax = .06;
 	int occupancyrate;
+	double tempoccu = 0;
 	
 	public Hotel(int accnum) {
 		super(accnum);
@@ -90,17 +97,22 @@ class Hotel extends business {
 		this.occupancyrate = ocrate;
 	}
 	
+	public void addOccuTax() {
+		if(this.occupancyrate > 90) {
+			this.tempoccu += Hotel.occupancy * this.tempoccu; 
+		}
+		this.tempoccu += Hotel.totaltax * this.tempoccu;
+		this.rectotal += this.tempoccu;
+		this.tempoccu = 0;
+	}
+	
 	public void printTotals() {
 		System.out.println(getName() + " total taxes: " + this.rectotal);
 	}
 	
 	public void setReceipt(String type, double total) {
 		if(type.equals("occupancy") == true) {
-			if(this.occupancyrate > 90) {
-				this.rectotal += (Hotel.occupancy * total) + total;
-			}
-			
-		this.rectotal += (Hotel.totaltax * this.rectotal);
+		this.tempoccu = total;
 		}
 	}
 

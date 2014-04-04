@@ -15,13 +15,18 @@ public class Tester {
 		//Week1
 		joes.setReceipt("food", 4000);
 		joes.setReceipt("drink", 3500);
+		joes.addBarTax();
+		
 		moes.setReceipt("food", 14000);
 		moes.setReceipt("drink", 9000);
+		moes.addBarTax();
 		
 		ritz.setOccupancyRate(98);
 		ritz.setReceipt("occupancy",25000);
+		ritz.addOccuTax();
 		notel.setOccupancyRate(93);
 		notel.setReceipt("occupancy", 5500);
+		notel.addOccuTax();
 		
 		six12.setReceipt("newspaper", 2400);
 		six12.setReceipt("other", 6000);
@@ -29,13 +34,17 @@ public class Tester {
 		//Week2
 		joes.setReceipt("food", 2500);
 		joes.setReceipt("drink", 3500);
+		joes.addBarTax();
 		moes.setReceipt("food", 12500);
 		moes.setReceipt("drink", 12500);
+		moes.addBarTax();
 		
 		ritz.setOccupancyRate(88);
 		ritz.setReceipt("occupancy", 21500);
+		ritz.addOccuTax();
 		notel.setOccupancyRate(98);
 		notel.setReceipt("occupancy", 6575);
+		notel.addOccuTax();
 		
 		six12.setReceipt("newspaper", 1700);
 		six12.setReceipt("other", 5927);
