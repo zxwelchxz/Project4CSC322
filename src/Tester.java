@@ -13,60 +13,84 @@ public class Tester {
 		six12.setName("six12");
 		
 		//Week1
+		System.out.println("___WEEK1____");
 		joes.setReceipt("food", 4000);
 		joes.setReceipt("drink", 3500);
 		joes.addBarTax();
+		joes.printTotals("food");
+		joes.printTotals("drink");
+		joes.printTotals("taxes");
+		joes.totalReceipt();
+		System.out.println();
 		
 		moes.setReceipt("food", 14000);
 		moes.setReceipt("drink", 9000);
 		moes.addBarTax();
+		moes.printTotals("food");
+		moes.printTotals("drink");
+		moes.printTotals("taxes");
+		moes.totalReceipt();
+		System.out.println();
 		
 		ritz.setOccupancyRate(98);
 		ritz.setReceipt("occupancy",25000);
 		ritz.addOccuTax();
+		ritz.printTotals();
+		System.out.println();
+		
 		notel.setOccupancyRate(93);
 		notel.setReceipt("occupancy", 5500);
 		notel.addOccuTax();
+		notel.printTotals();
+		System.out.println();
 		
 		six12.setReceipt("newspaper", 2400);
 		six12.setReceipt("other", 6000);
+		six12.printTotals("newspaper");
+		six12.printTotals("other");
+		six12.printTotals("taxes");
+		six12.totalReceipt();
+		System.out.println();
 		
 		//Week2
+		System.out.println("___WEEK2____");
 		joes.setReceipt("food", 2500);
 		joes.setReceipt("drink", 3500);
 		joes.addBarTax();
+		joes.printTotals("food");
+		joes.printTotals("drink");
+		joes.printTotals("taxes");
+		joes.totalReceipt();
+		System.out.println();
+		
+		
 		moes.setReceipt("food", 12500);
 		moes.setReceipt("drink", 12500);
 		moes.addBarTax();
+		moes.printTotals("food");
+		moes.printTotals("drink");
+		moes.printTotals("taxes");
+		moes.totalReceipt();
+		System.out.println();
 		
 		ritz.setOccupancyRate(88);
 		ritz.setReceipt("occupancy", 21500);
 		ritz.addOccuTax();
+		ritz.printTotals();
+		System.out.println();
+		
 		notel.setOccupancyRate(98);
 		notel.setReceipt("occupancy", 6575);
 		notel.addOccuTax();
-		
-		six12.setReceipt("newspaper", 1700);
-		six12.setReceipt("other", 5927);
-		
-		//Display Totals
-		joes.printTotals("food");
-		joes.printTotals("drink");
-		joes.totalReceipt();
-		System.out.println();
-		moes.printTotals("food");
-		moes.printTotals("drink");
-		moes.totalReceipt();
-		System.out.println();
-
-		
-		ritz.printTotals();
-		System.out.println();
 		notel.printTotals();
 		System.out.println();
 		
+		six12.setReceipt("newspaper", 1700);
+		six12.setReceipt("other", 5927);
 		six12.printTotals("newspaper");
 		six12.printTotals("other");
+		six12.printTotals("taxes");
+		six12.totalReceipt();
 	}
 
 }

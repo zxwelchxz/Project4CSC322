@@ -45,6 +45,13 @@ class Restaurant extends business {
 	public void totalReceipt() {
 		this.rectotal = this.drinktotal + this.foodtotal;
 		System.out.println(getName() + " receipt total: " + this.rectotal);
+		
+		this.rectotal = 0;
+		this.tempdrink = 0;
+		this.tempfood = 0;
+		this.foodtotal = 0;
+		this.drinktotal = 0;
+		this.taxes = 0;
 	}
 	
 	public void setReceipt(String type, double total) {
@@ -59,9 +66,9 @@ class Restaurant extends business {
 	
 	public void addBarTax() {
 		if(this.tempfood < this.tempdrink) {
-			this.tempdrink += Restaurant.bartax * this.tempdrink; 
+			this.taxes += Restaurant.bartax * this.tempdrink; 
 		}
-		this.tempdrink += Restaurant.drinktax * this.tempdrink;
+		this.taxes += Restaurant.drinktax * this.tempdrink;
 		this.foodtotal += this.tempfood;
 		this.drinktotal += this.tempdrink;
 		this.tempdrink = 0;
@@ -75,6 +82,10 @@ class Restaurant extends business {
 		}
 		else if (type.equals("drink") == true) {
 			System.out.println(getName() + " drink total: " + this.drinktotal);
+		}
+		
+		else {
+			System.out.println(getName() + " taxes: " + this.taxes);
 		}
 	}
 }
@@ -99,15 +110,19 @@ class Hotel extends business {
 	
 	public void addOccuTax() {
 		if(this.occupancyrate > 90) {
-			this.tempoccu += Hotel.occupancy * this.tempoccu; 
+			this.taxes += Hotel.occupancy * this.tempoccu; 
 		}
-		this.tempoccu += Hotel.totaltax * this.tempoccu;
+		this.taxes += Hotel.totaltax * this.tempoccu;
 		this.rectotal += this.tempoccu;
 		this.tempoccu = 0;
 	}
 	
 	public void printTotals() {
-		System.out.println(getName() + " total taxes: " + this.rectotal);
+		System.out.println(getName() + " taxes: " + this.taxes);
+		System.out.println(getName() + " total receipt: " + this.rectotal);
+		this.taxes = 0;
+		this.tempoccu = 0;
+		this.rectotal = 0;
 	}
 	
 	public void setReceipt(String type, double total) {
@@ -134,20 +149,38 @@ class Convenience extends business {
 	}
 	
 	public void printTotals(String type) {
-		if(type.equals("newspapertax") == true) {
+		if(type.equals("newspaper") == true) {
 			System.out.println(getName() + " newspaper total: " + this.newspapertotal);
 		}
 		else if (type.equals("other") == true) {
 			System.out.println(getName() + " other total: " + this.othertotal);
 		}
+		
+		this.rectotal = 0;
+		this.taxes = 0;
 	}
 	
 	public void setReceipt(String type, double total) {
 		if(type.equals("other") == true) {
-			this.othertotal += (Convenience.othertax * total) + total;
+			this.taxes += (Convenience.othertax * total);
+			this.othertotal += total;
 		}
 		else if (type.equals("newspaper") == true) {
-			this.newspapertotal = Convenience.newspapertax + total;
+			this.taxes += (Convenience.newspapertax * total);
+			this.newspapertotal += total; 
 		}
+		
+		else {
+			System.out.println(getName() + " taxes: " + this.taxes);
+		}
+	}
+	
+	public void totalReceipt() {
+		this.rectotal = this.othertotal + this.newspapertotal;
+		System.out.println(getName() + " receipt total: " + this.rectotal);
+		this.rectotal = 0;
+		this.taxes = 0;
+		this.othertotal = 0;
+		this.newspapertotal = 0;
 	}
 }
